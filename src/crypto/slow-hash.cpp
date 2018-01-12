@@ -30,9 +30,9 @@ namespace Crypto {
   }
 
   cn_context::~cn_context() {
-    if (!VirtualFree(data, 0, MEM_RELEASE)) {
-      throw bad_alloc();
-    }
+    // if (!VirtualFree(data, 0, MEM_RELEASE)) {
+    //   throw bad_alloc();
+    // }
   }
 
 #else
@@ -50,9 +50,9 @@ namespace Crypto {
   }
 
   cn_context::~cn_context() {
-    if (munmap(data, MAP_SIZE) != 0) {
-      throw bad_alloc();
-    }
+    // if (munmap(data, MAP_SIZE) != 0) {
+    //   throw bad_alloc();
+    // }
   }
 
 #endif
